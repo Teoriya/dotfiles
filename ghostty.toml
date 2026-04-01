@@ -1,2 +1,3 @@
 theme = Dracula
 window-inherit-working-directory = false
+background-opacity = 0.88
