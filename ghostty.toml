@@ -1,1 +1,2 @@
 theme = Dracula
+window-inherit-working-directory = false
