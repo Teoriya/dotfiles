@@ -1,0 +1,149 @@
+config-version = 2
+after-startup-command = [
+  "exec-and-forget open -a 'Zen Browser'",
+  "exec-and-forget open -a Discord",
+  "exec-and-forget open -a ChatGPT",
+  "exec-and-forget open -a Spotify",
+  "exec-and-forget open -a WhatsApp",
+  "workspace 1"
+]
+start-at-login = true
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+accordion-padding = 30
+default-root-container-layout = "tiles"
+default-root-container-orientation = "auto"
+on-focus-changed = ["exec-and-forget aerospace move-mouse window-lazy-center || aerospace move-mouse monitor-lazy-center"]
+
+
+#on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ]
+
+automatically-unhide-macos-hidden-apps = false
+persistent-workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+on-mode-changed = [ ]
+
+[key-mapping]
+preset = "qwerty"
+
+[gaps.inner]
+horizontal = 0
+vertical = 0
+
+[gaps.outer]
+left = 0
+bottom = 0
+top = 0
+right = 0
+
+[workspace-to-monitor-force-assignment]
+
+5 = "^built-in retina display$"
+9 = "^built-in retina display$"
+
+[mode.main.binding]
+
+#spotif
+f7 = "exec-and-forget ~/.config/aerospace/scripts/spotify/prev.sh"
+f8 = "exec-and-forget ~/.config/aerospace/scripts/spotify/playpause.sh"
+f9 = "exec-and-forget ~/.config/aerospace/scripts/spotify/next.sh"
+f10 = "exec-and-forget ~/.config/aerospace/scripts/spotify/mute.sh"
+f11 = "exec-and-forget ~/.config/aerospace/scripts/spotify/volumedown.sh"
+f12 = "exec-and-forget ~/.config/aerospace/scripts/spotify/volumeup.sh"
+ 
+
+alt-slash = "layout tiles horizontal vertical"
+alt-comma = "layout accordion horizontal vertical"
+alt-left = "focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-down = "focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-up = "focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-right = "focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-shift-left = "move left"
+alt-shift-down = "move down"
+alt-shift-up = "move up"
+alt-shift-right = "move right"
+
+
+alt-h = "focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-j = "focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-k = "focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-l = "focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors"
+alt-shift-h = "move left --boundaries all-monitors-outer-frame"
+alt-shift-j = "move down --boundaries all-monitors-outer-frame"
+alt-shift-k = "move up --boundaries all-monitors-outer-frame"
+alt-shift-l = "move right --boundaries all-monitors-outer-frame"
+alt-minus = "resize smart -15"
+alt-equal = "resize smart +15"
+
+
+alt-1 = "workspace 1"
+alt-2 = "workspace 2"
+alt-3 = "workspace 3"
+alt-4 = "workspace 4"
+alt-5 = "workspace 5"
+alt-6 = "workspace 6"
+alt-7 = "workspace 7"
+alt-8 = "workspace 8"
+alt-9 = "workspace 9"
+alt-0 = "workspace 0"
+alt-q = "workspace 0"
+
+alt-shift-1 = "move-node-to-workspace 1"
+alt-shift-2 = "move-node-to-workspace 2"
+alt-shift-3 = "move-node-to-workspace 3"
+alt-shift-4 = "move-node-to-workspace 4"
+alt-shift-5 = "move-node-to-workspace 5"
+alt-shift-6 = "move-node-to-workspace 6"
+alt-shift-7 = "move-node-to-workspace 7"
+alt-shift-8 = "move-node-to-workspace 8"
+alt-shift-9 = "move-node-to-workspace 9"
+alt-shift-0 = "move-node-to-workspace 0"
+
+
+alt-f = "fullscreen"
+alt-shift-f = "layout floating tiling"
+
+alt-tab = "exec-and-forget bash -c 'aerospace focus dfs-next --boundaries-action fail || { aerospace focus-monitor --wrap-around next; aerospace focus --dfs-index 0; }'"
+
+alt-shift-tab = "move-workspace-to-monitor --wrap-around next "
+
+
+alt-shift-semicolon = "mode service"
+
+[mode.service.binding]
+esc = [ "reload-config", "mode main" ]
+r = [ "flatten-workspace-tree", "mode main" ]
+f = [ "layout floating tiling", "mode main" ]
+backspace = [ "close-all-windows-but-current", "mode main" ]
+alt-shift-h = [ "join-with left", "mode main" ]
+alt-shift-j = [ "join-with down", "mode main" ]
+alt-shift-k = [ "join-with up", "mode main" ]
+alt-shift-l = [ "join-with right", "mode main" ]
+
+
+[[on-window-detected]]
+if.app-id = "app.zen-browser.zen"
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = "com.hnc.Discord"
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = "com.openai.chat"
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = "move-node-to-workspace 5"
+
+[[on-window-detected]]
+if.app-id = "net.whatsapp.WhatsApp"
+run = "move-node-to-workspace 9"
+
+[[on-window-detected]]
+if.app-id = "ru.keepcoder.Telegram"
+run = "move-node-to-workspace 9"
+
+# Random / everything else
+[[on-window-detected]]
+run = "move-node-to-workspace 0"
