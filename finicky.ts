@@ -7,6 +7,10 @@ export default {
     {
       match: /meet\.google\.com/,
       browser: "Google Chrome"
+    },
+    {
+      match: /youtube\.com/,
+      browser: "Brave"
     }
   ]
 };
