@@ -6,6 +6,9 @@ after-startup-command = [
   "exec-and-forget open -a Spotify",
   "exec-and-forget open -a WhatsApp",
   "exec-and-forget open -a Ghostty",
+  "exec-and-forget open -a 'OBS'",
+  "exec-and-forget open -a 'Brave Browser'",
+  "exec-and-forget open -a 'Google Chrome'",
   "workspace 1"
 ]
 start-at-login = true
@@ -20,7 +23,7 @@ on-focus-changed = ["exec-and-forget aerospace move-mouse window-lazy-center || 
 #on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ]
 
 automatically-unhide-macos-hidden-apps = false
-persistent-workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+persistent-workspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "o" ]
 on-mode-changed = [ ]
 
 [key-mapping]
@@ -40,6 +43,7 @@ right = 0
 
 5 = "^built-in retina display$"
 9 = "^built-in retina display$"
+o = "^built-in retina display$"
 
 [mode.main.binding]
 
@@ -86,6 +90,7 @@ alt-7 = "workspace 7"
 alt-8 = "workspace 8"
 alt-9 = "workspace 9"
 alt-0 = "workspace 0"
+alt-o = "workspace o"
 alt-q = "workspace 0"
 
 alt-shift-1 = "move-node-to-workspace 1"
@@ -98,6 +103,7 @@ alt-shift-7 = "move-node-to-workspace 7"
 alt-shift-8 = "move-node-to-workspace 8"
 alt-shift-9 = "move-node-to-workspace 9"
 alt-shift-0 = "move-node-to-workspace 0"
+alt-shift-o = "move-node-to-workspace o"
 
 
 alt-f = "fullscreen"
@@ -149,6 +155,18 @@ run = "move-node-to-workspace 9"
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "com.obsproject.obs-studio"
+run = "move-node-to-workspace o"
+
+[[on-window-detected]]
+if.app-id = "com.google.Chrome"
+run = "move-node-to-workspace 8"
+
+[[on-window-detected]]
+if.app-id = "com.brave.Browser"
+run = "move-node-to-workspace 8"
 
 # Random / everything else
 [[on-window-detected]]
